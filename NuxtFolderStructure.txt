@@ -1,0 +1,22 @@
+Nuxt Folder Structure
+app/
+-> it is the main directory of the Nuxt application
+-> it contains many subdirectory assets
+assets/ 
+-> it stores the non-static assets like CSS,images,fonts and any file that need to be processed by webpack before they are used in the app
+components/
+-> it contains the reusable components that can be used to pass throught our app
+composables/
+-> Stores composable functions that provide shared logic using vue3's composition API
+-> used to auto import the vue composables into app
+layouts/
+contains the layout components that define the structure for pages,used to wrap pages with common elements and avoid re-rendering between the pages
+middleware/
+-> contains the functions that run before rendering a page,have access of both request and response
+pages/
+-> it contains the vue components that automatically map to routes in application
+plugins/
+-> contains client-side js that needs to run before the root vue instance is created
+utils/
+-> add functions throughtout application that can be used in the components
+

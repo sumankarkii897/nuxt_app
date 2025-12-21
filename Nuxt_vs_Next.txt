@@ -1,0 +1,10 @@
+Nuxt
+-> built on top of vue
+-> Build tool Vite + Nitro runtime
+-> It has more opinionated but highly configurable
+-> Requires external server middleware or separate server
+Next
+-> build on top of react
+-> Build tool Webpack(legacy),Turbopack,Babel
+-> It has minimal configuration required
+-> Built in API routes with file based totally shape
