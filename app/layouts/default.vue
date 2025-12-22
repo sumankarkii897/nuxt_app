@@ -6,11 +6,11 @@
 </script>
 
 <template>
-  <div class="bg-gray-400 text-black ">
+  <div class="bg-gray-400 text-black flex flex-col min-h-screen ">
     <!-- <p>Some default layout content shared across all pages</p> -->
   <Header/>
   
-  <main>
+  <main class="flex-1 p-6 ">
       <slot />
       <!-- The content of the page will be displayed in the <slot/> component -->
   </main>
