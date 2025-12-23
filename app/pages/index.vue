@@ -52,6 +52,10 @@
                     <h2 class=" text-[#E59B4C]">Hot Deals 🔥</h2>
                 </div>
                 <div class="grid lg:grid-cols-4 justify-start gap-4 w-7xl mb-6 grid-cols-3 sm:grid-cols-1 lg:ml-2 mx-auto">
+                    <!-- 
+                        <products status="Limited Stock" name="Men Clothing" price="49.99"/>    
+                    
+                    -->
                     <ProductCard v-for="product in products" :key="product.name" :status="product.status" :name="product.name" :price="product.price"/>
                     
                     
