@@ -7,6 +7,15 @@
     //         router.push(`/blog/${num.value}` )
     //     }
     // }
+    const users=[{
+        name:"Ram",address:"Kathmandu"
+    },
+    {
+        name:"Shyam",address:"Lalitpur"
+    },
+    {
+        name:"Hari",address:"Bhaktapur"
+    }]
 </script>
 <!-- <NuxtLink to="/blog/1"></NuxtLink> only used in the template inside script use useRouter and router.push(`/blog/${num.value}`  ) -->
 <template>
@@ -17,33 +26,7 @@
 <button v-if="num>0" @click="goToBlog" class="border p-1.5 m-1 bg-gray-400 text-white">Go to Blog {{ num }}</button>
         </div> -->
         <section>
-            <div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
-        <div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
-        <div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-        </div>
+            <UserCard v-for="user in users" :key="user.name" :user="user" />
         </section>
     </div>
 </template>
@@ -58,7 +41,7 @@
         
         
     }
-    section div{
+    /* section div{
        
         
         height: 350px;
@@ -72,7 +55,7 @@
         font-family: cursive;
         font-size: 1rem;
        
-    }
+    } */
     section{
         display: flex;
         padding: auto;
