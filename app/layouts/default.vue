@@ -10,7 +10,7 @@
     <!-- <p>Some default layout content shared across all pages</p> -->
   <Header/>
   
-  <main class="flex-1 p-6 ">
+  <main class="">
       <slot />
       <!-- The content of the page will be displayed in the <slot/> component -->
   </main>
