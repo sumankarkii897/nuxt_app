@@ -38,8 +38,7 @@ function enableCustomLayout(){
     <div>
         <h1>Blog Id : {{ route.params.id }}</h1>
         <button @click="enableCustomLayout" class="border p-1.5 m-1 bg-gray-500 text-white">Enable Custom Layout</button>
-        <p>Value form shared state</p>
-        <p>Count Value from useCounters : {{ count}} </p>
-        <button class="border text-white" @click="decreaseCount">Decrease Count</button>
+        
+        <DisplayCount/>
     </div>
 </template>
