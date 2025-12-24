@@ -1,4 +1,6 @@
 <script setup lang="js">
+const { count } = useCounter();
+
     // const { greeting } = useUtils();
     definePageMeta({
         layout: 'custom'

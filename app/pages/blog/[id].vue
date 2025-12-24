@@ -5,6 +5,7 @@
     import { ref } from 'vue';
     const route=useRoute();
     const isCustomLayout=ref(false);
+   const {count,decreaseCount}=useCounter();
     /*  Changing the layout dynamically use setPageLayout*/
     // onMounted(()=>{
     //     console.log("Current Layout is default");
@@ -37,5 +38,8 @@ function enableCustomLayout(){
     <div>
         <h1>Blog Id : {{ route.params.id }}</h1>
         <button @click="enableCustomLayout" class="border p-1.5 m-1 bg-gray-500 text-white">Enable Custom Layout</button>
+        <p>Value form shared state</p>
+        <p>Count Value from useCounters : {{ count}} </p>
+        <button class="border text-white" @click="decreaseCount">Decrease Count</button>
     </div>
 </template>

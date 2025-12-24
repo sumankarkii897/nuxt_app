@@ -4,7 +4,9 @@
     </div> -->
     <div >
         <h1>About Page</h1>
-        <img src="@/assets/karola.jpg" alt="Karola" class="mx-auto  w-48 h-48 mt-4"/>
+        <!-- <img src="@/assets/karola.jpg" alt="Karola" class="mx-auto  w-48 h-48 mt-4"/> -->
+        <!-- <Counter/> -->
+         <PracticeUseUser/>
     </div>
 </template>
 <style scoped>  

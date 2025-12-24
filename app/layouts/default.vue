@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <div class="bg-gray-400 text-black flex flex-col min-h-screen ">
+  <div class="bg-gray-400 text-black flex flex-col  ">
     <!-- <p>Some default layout content shared across all pages</p> -->
   <Header/>
   

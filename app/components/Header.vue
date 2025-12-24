@@ -1,5 +1,9 @@
 <script setup>
   import { Icon } from '@iconify/vue';
+  import { useLocalStorage } from '@vueuse/core'
+  const {user,setUser,logoutUser}=useUser();
+  /* This won't work as  // const userNameFromLocalStorage=localStorage.getItem("userName"); */
+  const userName=useLocalStorage('userName','');
 </script>
 <template>
     <header>
@@ -9,7 +13,12 @@
         <li><NuxtLink to="/contact">Contact</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
         <li><NuxtLink to="/blog/1">Blog 1</NuxtLink></li>
-        
+        <li v-if="userName"   > 
+          <NuxtLink to="/profile" class="flex"><Icon icon="mdi:account" width="24" height="24" /><span>{{ userName }}</span></NuxtLink></li>
+          <li v-if="userName"  >
+            <button @click="logoutUser">Logout</button>
+          </li>
+        <li v-else><NuxtLink to="/login">Login</NuxtLink></li>
          <li>
   <div class="relative">
     <input
