@@ -2,9 +2,7 @@
 const { count } = useCounter();
 
     // const { greeting } = useUtils();
-    definePageMeta({
-        layout: 'custom'
-    });
+    /* definePageMeta({
     // greeting();
     // const user=[{
     //     name:"Ram",
@@ -24,7 +22,8 @@ const { count } = useCounter();
     console.log(users.value);
     // users=users.value.data;
     console.log(users.value.data);
-    
+
+
     
 </script>
 <template>
@@ -35,14 +34,15 @@ const { count } = useCounter();
         <h1>Welcome to the Contact Page</h1>
     </div>
 </section>
-<div class="mt-2.5 display:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <!-- <UserCard v-for="u in user" :key="u.name" :name="u.name" :address="u.address" /> -->
-     <ul>
-        <li>User List</li>
+     <!-- <ul> -->
+        <!-- <li>User List</li> -->
         <!-- automatically unwraps ref in template so it works -->
          <!-- : -> v-bind for dynamic routing if not : then /users/1 -->
-        <li v-for="user in users" :key="user.id"><NuxtLink :to="`/users/${user.id}`">{{ user.name }}</NuxtLink></li>
-     </ul>
+        <!-- <li v-for="user in users" :key="user.id"><NuxtLink :to="`/users/${user.id}`">{{ user.name }}</NuxtLink></li> -->
+    <!--  </ul> -->
+      <UserCard v-for="user in users" :key="user.id" :name="user.name" :address="user.address.city" :email="user.email" :phone="user.phone" :id="user.id" />
 </div>
 
     </main>

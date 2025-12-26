@@ -15,7 +15,7 @@ const onSubmit=(e)=>{
     <NuxtLink to="/"></NuxtLink>; */
     /* Storing username in Local Storage */
    /* this doesn't work in nuxt4  nuxtStorage.localStorage.setData('userName',user.value.name) */
-   if(user.value.name ==="" || user.value.email==="" || user.value.password==="" || user.value.password.length < 8){
+   if(user.value.name ==="" || user.value.password==="" || user.value.password.length < 8){
 alert("All fields are required and password must be greater than 8 characters")
 // return;
 router.push("/login")
@@ -36,7 +36,7 @@ router.push("/login")
     <form class="h-80 w-80 flex flex-col justify-center items-center bg-white rounded-lg" @submit="onSubmit">
         <h1>Login</h1> 
         <input type="text" name="username" id="username" placeholder="Username" class="border p-1.5 m-1" v-model="user.name"/>
-        <input type="text" name="email" id="email" placeholder="Email" class="border p-1.5 m-1" v-model="user.email"/>
+       <!--  <input type="text" name="email" id="email" placeholder="Email" class="border p-1.5 m-1" v-model="user.email"/> -->
         <input type="password" name="password" id="password" placeholder="Password" class="border p-1.5 m-1" v-model="user.password"/>
         <button class="border p-1.5 m-1  text-white border-white rounded px-1 py-2 bg-amber-500 cursor-pointer">Login</button>
         <p>Already have an account ?

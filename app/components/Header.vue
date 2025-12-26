@@ -12,7 +12,8 @@
         <li class=""><NuxtLink to="/">Home</NuxtLink></li>
         <li><NuxtLink to="/contact">Contact</NuxtLink></li>
         <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/blog/1">Blog 1</NuxtLink></li>
+        <!-- <li><NuxtLink to="/blog/1">Blog 1</NuxtLink></li> -->
+         <li><NuxtLink to="/products">Products</NuxtLink></li>
         <li v-if="userName"   > 
           <NuxtLink to="/profile" class="flex"><Icon icon="mdi:account" width="24" height="24" /><span>{{ userName }}</span></NuxtLink></li>
           <li v-if="userName"  >
