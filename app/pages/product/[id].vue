@@ -2,12 +2,21 @@
 const router=useRoute();
 const id=router.params.id;
 const {data:product,pending,error}=await useFetch(`/api/products/${id}`)
-console.log(product.value);
-
+// console.log(product.value);
+useHead({
+  title:`${product.value.title}`,
+  meta:[{
+    name:"description",content:`${product.value.description}`
+  },
+{ property:"og:title", content:`${product.value.title}`},
+{property : "og:description" , content:`${product.value.description}`},
+{property:"og:type",content:"product"}
+]
+})
 </script>
 
 <template>
-   <div class="w-full h-160 bg-amber-300 m-1 p-2">
+   <div class="w-full h-160 bg-amber-200 m-1 p-2">
      <h1 class="text-center"> Product Description</h1>
     <div>
         <div v-if="pending" > Loading ....</div>

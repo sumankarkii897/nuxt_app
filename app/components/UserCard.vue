@@ -14,7 +14,7 @@ const viewUserProfile=(id:number)=>{
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-md  transition-shadow duration-300 p-5 max-w-sm mx-auto w-3xl h-54">
+  <div class="bg-white rounded-lg shadow-md  transition-shadow duration-300 p-5 max-w-sm mx-auto w-xl h-54">
     <p class="text-lg font-semibold text-gray-800 mb-2">Name: {{ props.name }}</p>
     <p class="text-gray-600">Address: {{ props.address }}</p>
     <p>Email : {{ props.email }}</p>

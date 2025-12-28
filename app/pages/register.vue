@@ -43,7 +43,9 @@ useHead({
   meta:[{
     name:"description",content:"create new account"
   },
-{ name: "keywords", content: "register, signup, account" }]
+  { property:"og:title", content:'register'},
+  { property:"og-description",content:"create new account"},
+{ name: "keywords", content: "register, signup, new account" }]
 })
 </script>
 

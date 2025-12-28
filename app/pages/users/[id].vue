@@ -4,7 +4,18 @@ const route=useRoute();
 const id=route.params.id;
 const {data:user,pending,error}=await useFetch(`/api/users/${id}`);
 /* useFetch return ref object so user in not an object it is an object */
-console.log(user.value);
+// console.log(user.value);
+const userData=user.value;
+useHead({
+  title:`${userData.name}`,
+  meta:[{
+    name:"description",content:"User Details",
+  
+  },
+{ property:"og:description",content:"User Details"},
+{ property:"og-title",content:`${userData.name}`}
+]
+})
 
 </script>
 <template>
@@ -12,7 +23,7 @@ console.log(user.value);
     <div v-if="pending">Loading...</div>
     <div v-else-if="error">Error loading user</div>
     <div v-else class="flex justify-center items-center h-84">
-      <div class="bg-white w-6/12 h-64 flex flex-col justify-start items-start p-4 shadow-lg rounded-lg">
+      <div class="bg-white w-6/12 h-75 md:h-64 flex flex-col justify-start items-start p-4 shadow-lg rounded-lg">
         <h1 class="font-bold text-2xl ">{{ user.name }}</h1>
       <p>Username: {{ user.username }}</p>
       <p>Email: {{ user.email }}</p>

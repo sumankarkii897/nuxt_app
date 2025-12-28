@@ -17,23 +17,33 @@ export  const useUser=()=>{
         email:"",
         password:""
     }));
+    const clearUser=()=>{
+    user.value.name="",
+    user.value.email="",
+    user.value.password=""
+}
     const setUser=(name:string,email:string,password:string)=>{
         user.value.name=name,
         user.value.email=email,
         user.value.password=password
         console.log("name:",name);
         console.log("email:",email);
+        // storing data in localstorage
+          localStorage.setItem('userName', user.value.name);
+        clearUser();
         // console.log("password: ",password);
         /* trying to store data in localstorage */
       
       
 
     }
-const clearUser=()=>{
-    user.value.name="",
-    user.value.email="",
-    user.value.password=""
-}
+    const initUser=()=>{
+        const name=localStorage.getItem("userName")
+        if(name){
+            user.value.name=name;
+        }
+    }
+
 const logoutUser=()=>{
     clearUser();
     localStorage.removeItem("userName");
@@ -45,6 +55,7 @@ const logoutUser=()=>{
         user,
         setUser,
         clearUser,
-        logoutUser
+        logoutUser,
+        initUser
     }
 }

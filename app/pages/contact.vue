@@ -2,7 +2,7 @@
 const { count } = useCounter();
 
     // const { greeting } = useUtils();
-    /* definePageMeta({
+    //  definePageMeta({
     // greeting();
     // const user=[{
     //     name:"Ram",
@@ -16,30 +16,36 @@ const { count } = useCounter();
     //     name:"Shyam",
     //     address:"Bhaktapur"
     // }]
-    /* calling API using useFetchi in contact page */
+    // calling API using useFetchi in contact page
     const {data:users,pending,error}=await useFetch("/api/users")
-    /* useFetch return ref object so users in not an array it is an object */
-    console.log(users.value);
+    // useFetch return ref object so users in not an array it is an object
+    // console.log(users.value);
     // users=users.value.data;
-    console.log(users.value.data);
+    // console.log(users.value.data);
 
 
     useHead({
         title:"Contact",
         meta:[{
             name:"description",content:"Get in touch with us"
-        }]
+        },
+    {property:"og:title",content:"Contact"},
+{property:"og:description",content:"Get in touch with us"},
+{property:"keywords",content:"contact us, get in touch , reach us , help center , support team , customer support"}
+]
     })
 </script>
 <template>
     <main class="p-2">
         
 <section>
-    <div class="text-2xl font-bold mb-4 text-center">
+    <div class="text-2xl font-bold mb-4 text-center text-white">
         <h1>Welcome to the Contact Page</h1>
     </div>
 </section>
-<div class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div v-if="pending">Loading ...</div>
+<div v-else-if="error"> Error Occured : {{ error }}</div>
+<div v-else class="m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <!-- <UserCard v-for="u in user" :key="u.name" :name="u.name" :address="u.address" /> -->
      <!-- <ul> -->
         <!-- <li>User List</li> -->

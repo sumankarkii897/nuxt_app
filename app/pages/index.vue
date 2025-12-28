@@ -30,7 +30,14 @@ useHead({
   title:"Home",
 meta: [
     { name: "description", content: "Explore the latest fashion deals" },
-    { name: "keywords", content: "fashion, clothing, hot deals, shopping" }
+    { name: "keywords", content: "fashion, clothing, hot deals, shopping,main page" }
+    ,{
+      property:"og:title",content:"Home"
+    },
+    {property:"og:description",content:"Explore the latest fashion deals"},
+  {
+    property:"og:type",content:"website"
+  }
   ]
 })
 </script>
@@ -53,11 +60,11 @@ meta: [
 <p class="text-[#dc8b29]">FASHION BEAUTY KIDS SUMMER HOME & MORE</p>
                 </div>
             </section>
-<section class="mt-4 w-full bg-white rounded">
-  <h2 class="text-center text-2xl font-bold mb-6">Hot Deals 🔥</h2>
+<section class="mt-2 w-full bg-white rounded">
+  <h2 class="text-center text-2xl font-bold">Hot Deals 🔥</h2>
 
   <div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto justify-items-center px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto justify-items-center px-4 mt-4 ">
       <ProductCard
         v-for="(product, index) in products"
         :key="index"

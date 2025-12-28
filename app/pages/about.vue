@@ -1,6 +1,15 @@
 <script setup lang="ts">
     useHead({
-        title:"About"
+        title:"About",
+        meta:[
+            {name:"description",content:"Know about us "},
+            {property:"og:description",content:"Know about us"},
+            {property:"og:title",content:"About"},
+            {
+            property:"og:type",content:"website"
+            }
+        
+        ]
     })
 </script>
 <template>
