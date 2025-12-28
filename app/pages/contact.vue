@@ -24,7 +24,12 @@ const { count } = useCounter();
     console.log(users.value.data);
 
 
-    
+    useHead({
+        title:"Contact",
+        meta:[{
+            name:"description",content:"Get in touch with us"
+        }]
+    })
 </script>
 <template>
     <main class="p-2">

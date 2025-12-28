@@ -38,6 +38,13 @@ const onSubmit = (e: Event) => {
   setUser(user.value.name, user.value.email, user.value.password);
   alert("User registered successfully!");
 };
+useHead({
+  title:"register",
+  meta:[{
+    name:"description",content:"create new account"
+  },
+{ name: "keywords", content: "register, signup, account" }]
+})
 </script>
 
 <template>
@@ -75,7 +82,7 @@ const onSubmit = (e: Event) => {
       <p v-if="errors.password" class="text-red-500 text-sm mt-1">{{ errors.password }}</p>
     </div>
 
-    <button type="submit" class="bg-amber-500 text-white rounded px-4 py-2 mt-2 w-full hover:bg-amber-600">
+    <button type="submit" class="bg-amber-500 text-white rounded px-4 py-2 mt-2 w-full hover:bg-amber-600 cursor-pointer">
       Register
     </button>
 

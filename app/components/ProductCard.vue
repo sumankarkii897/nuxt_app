@@ -3,7 +3,7 @@
     </script>
 <template>
 <section>
-    <div class="w-2xs h-96 border-red-500 border-2 rounded-lg shadow-lg bg-white flex flex-col  p-3 relative sm:ml-50 mb-2">
+    <div class="w-2xs h-96 border-red-500 border-2 rounded-lg shadow-lg bg-white flex flex-col  p-3 relative sm:ml-50 mb-2 ">
         <div class="absolute right-0 top-0 bg-[#E59B4C] p-1 h-9  rounded-bl-lg text-center font-italic">
             <p class="text-center">{{productDetails.status?productDetails.status:"Low Stock"}}</p>
         </div>

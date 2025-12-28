@@ -1,5 +1,11 @@
 <script setup>
 const { data, pending, error } = await useFetch('/api/products')
+useHead({
+  title:"Product ",
+  meta:[{
+    name:"description",content:"Explore our products"
+  }]
+})
 </script>
 
 <template>
