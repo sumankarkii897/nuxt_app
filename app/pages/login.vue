@@ -1,11 +1,17 @@
 <script setup>
-
-const { user, setUser } = useUser();
-const router = useRouter();
+  import {useUserStore} from '~~/stores/user'
+const userStore=useUserStore();
+// const { user, setUser } = useUser();
+// const router = useRouter();
 const errors = reactive({
   name: "",
   email: "",
   password: ""
+})
+const formData=reactive({
+  name:"",
+  email:"",
+  password:""
 })
 const validate = () => {
   /* clearing error */
@@ -13,19 +19,23 @@ const validate = () => {
   errors.email = ""
   errors.password = ""
   let isValid = true
-  if (!user.value.name) {
+  if (!formData.name) {
     errors.name = "Username is required"
     isValid = false
   }
-  if (!user.value.email) {
+  // if (!formData.name) {
+  //   errors.name = "Username is required"
+  //   isValid = false
+  // }
+  if (!formData.email) {
     errors.email = "Email is required"
     isValid = false
   }
-  if (!user.value.password) {
+  if (!formData.password) {
     errors.password = "Password is required"
     isValid = false
   }
-  if (user.value.password.length < 8) {
+  if (formData.password.length < 8) {
     errors.password = "Password must be at least 8 characters"
     isValid = false
   }
@@ -43,25 +53,26 @@ const onSubmit = (e) => {
   
   <NuxtLink to="/"></NuxtLink>; */
   /* Storing username in Local Storage */
-  /* this doesn't work in nuxt4  nuxtStorage.localStorage.setData('userName',user.value.name) */
-  /* if(user.value.name ==="" || user.value.email==="" || user.value.password==="" || user.value.password.length < 8){
+  /* this doesn't work in nuxt4  nuxtStorage.localStorage.setData('userName',formData.name) */
+  /* if(formData.name ==="" || formData.email==="" || formData.password==="" || formData.password.length < 8){
 alert("All fields are required and password must be greater than 8 characters")
 // return;
 router.push("/login")
   } */
   /* else{
-     localStorage.setItem('userName',user.value.name);
+     localStorage.setItem('userName',formData.name);
     console.log(`userName  data stored in localstorage key userName`);
-    console.log("User logged in:",user.value.name);
-      alert(`User ${user.value.name} logged successfully...`)
+    console.log("User logged in:",formData.name);
+      alert(`User ${formData.name} logged successfully...`)
     router.push("/");
   } */
   if (!validate()) {
     return;
   }
-  setUser(user.value.name, user.value.email, user.value.password);
+  // setUser(formData.name, formData.email, formData.password);
 
-  router.push("/")
+  // router.push("/")
+  userStore.login(formData.name,formData.email,formData.password)
 }
 useHead({
   title: "Login",
@@ -90,18 +101,18 @@ useHead({
       
         <input type="text" placeholder="Username" 
         id="Username"
-        v-model="user.name"
+        v-model="formData.name"
           :class="['border p-2 rounded w-full', errors.name ? 'border-red-500' : 'border-gray-300']" />
         <p v-if="errors.name" class="text-red-500 text-sm mt-1">{{ errors.name }}</p>
       </div>
       <div class="w-full mb-2">
-        <input type="email" placeholder="Email" v-model="user.email"
+        <input type="email" placeholder="Email" v-model="formData.email"
           :class="['border p-2 rounded w-full', errors.name ? 'border-red-500' : 'border-gray-300']">
         <p v-if="errors.email" class="text-red-500 text-sm mt-1">{{ errors.email
           }}</p>
       </div>
       <div class="w-full mb-2">
-        <input type="password" placeholder="Password" v-model="user.password"
+        <input type="password" placeholder="Password" v-model="formData.password"
           :class="['border p-2 rounded w-full', errors.password ? 'border-red-500' : 'border-gray-300']">
         <p v-if="errors.password" class="text-red-500 text-sm mt-1">{{ errors.password }}</p>
       </div>

@@ -1,12 +1,18 @@
 <script setup lang="ts">
-const { user, setUser } = useUser();
+// const { user, setUser } = useUser();
 import { reactive } from "vue";
-
+import { useUserStore } from "~~/stores/user";
+const userStore=useUserStore()
 const errors = reactive({
   name: "",
   email: "",
   password: ""
 });
+const formData=reactive({
+  name:"",
+  email:"",
+  password:""
+})
 
 const onSubmit = (e: Event) => {
   e.preventDefault();
@@ -17,25 +23,26 @@ const onSubmit = (e: Event) => {
 
   let isValid = true;
 
-  if (!user.value.name) {
+  if (!formData.name) {
     errors.name = "Name is required";
     isValid = false;
   }
-  if (!user.value.email) {
+  if (!formData.email) {
     errors.email = "Email is required";
     isValid = false;
   }
-  if (!user.value.password) {
+  if (!formData.password) {
     errors.password = "Password is required";
     isValid = false;
-  } else if (user.value.password.length < 8) {
+  } else if (formData.password.length < 8) {
     errors.password = "Password must be at least 8 characters";
     isValid = false;
   }
 
   if (!isValid) return;
 
-  setUser(user.value.name, user.value.email, user.value.password);
+  // setUser(formData.name, formData.email, formData.password);
+  userStore.registerUser(formData.name,formData.email,formData.password)
   alert("User registered successfully!");
 };
 useHead({
@@ -58,7 +65,7 @@ useHead({
       <input
         type="text"
         placeholder="Username"
-        v-model="user.name"
+        v-model="formData.name"
         :class="['border p-2 rounded w-full', errors.name ? 'border-red-500' : 'border-gray-300']"
       />
       <p v-if="errors.name" class="text-red-500 text-sm mt-1">{{ errors.name }}</p>
@@ -68,7 +75,7 @@ useHead({
       <input
         type="email"
         placeholder="Email"
-        v-model="user.email"
+        v-model="formData.email"
         :class="['border p-2 rounded w-full', errors.email ? 'border-red-500' : 'border-gray-300']"
       />
       <p v-if="errors.email" class="text-red-500 text-sm mt-1">{{ errors.email }}</p>
@@ -78,7 +85,7 @@ useHead({
       <input
         type="password"
         placeholder="Password"
-        v-model="user.password"
+        v-model="formData.password"
         :class="['border p-2 rounded w-full', errors.password ? 'border-red-500' : 'border-gray-300']"
       />
       <p v-if="errors.password" class="text-red-500 text-sm mt-1">{{ errors.password }}</p>

@@ -2,15 +2,20 @@
 import { ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useLocalStorage } from '@vueuse/core'
+import { useUserStore } from '~~/stores/user'
 // const {user} =useUser();
+const userStore=useUserStore();
 
-const { user,logoutUser } = useUser()
-const userName = useLocalStorage('userName', '')
+
+// const { user,logoutUser } = useUser()
+// const userName = useLocalStorage('userName', '')
 
 const isMenuOpen = ref(false)
 
 const handleLogout = () => {
-  logoutUser()
+  // logoutUser()
+  /* from store */
+  userStore.logout();
   /* to clear the input field */
   // userName.value = ''
 }
@@ -49,15 +54,25 @@ const toggleMenu = () => {
         </div>
 
         <div class="hidden lg:flex items-center space-x-4">
-          <div v-if="userName" class="flex items-center space-x-2">
+          <div v-if="userStore.user?.name" class="flex items-center space-x-2">
             <NuxtLink to="/profile" class="flex items-center space-x-1 hover:text-amber-400">
               <Icon icon="mdi:account" width="24" height="24" />
-              <span>{{ userName}}</span>
+              <span>{{ userStore.user?.name}}</span>
             </NuxtLink>
             <button @click="handleLogout" class="hover:text-red-400">Logout</button>
           </div>
           <NuxtLink v-else to="/login" class="hover:text-amber-400">Login</NuxtLink>
         </div>
+        <!-- <div class="hidden lg:flex items-center space-x-4">
+          <div v-if="userStore.user?.name" class="flex items-center space-x-2">
+            <NuxtLink to="/profile" class="flex items-center space-x-1 hover:text-amber-400">
+              <Icon icon="mdi:account" width="24" height="24" />
+              <span>{{ useStorage.user?.name}}</span>
+            </NuxtLink>
+            <button @click="handleLogout" class="hover:text-red-400">Logout</button>
+          </div>
+          <NuxtLink v-else to="/login" class="hover:text-amber-400">Login</NuxtLink>
+        </div> -->
 
         <!-- Mobile hamburger -->
         <button class="lg:hidden ml-2" @click="toggleMenu">
@@ -74,10 +89,10 @@ const toggleMenu = () => {
         <NuxtLink to="/about" class="hover:text-amber-400">About</NuxtLink>
         <NuxtLink to="/products" class="hover:text-amber-400">Products</NuxtLink>
 
-        <div v-if="userName" class="flex flex-col mt-2">
+        <div v-if="userStore.user?.name" class="flex flex-col mt-2">
           <NuxtLink to="/profile" class="flex items-center space-x-1 hover:text-amber-400">
             <Icon icon="mdi:account" width="22" height="22" />
-            <span>{{ userName}}</span>
+            <span>{{ userStore.user?.name}}</span>
           </NuxtLink>
           <button @click="handleLogout" class="hover:text-red-400 mt-1">Logout</button>
         </div>
