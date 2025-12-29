@@ -16,6 +16,6 @@
       <slot />
       <!-- The content of the page will be displayed in the <slot/> component -->
   </main>
-    <Footer/>
+    <Footer class="mt-1"/>
   </div>
 </template>

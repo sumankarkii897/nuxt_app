@@ -16,25 +16,30 @@ useHead({
 </script>
 
 <template>
-   <div class="w-full h-160 bg-amber-200 m-1 p-2">
-     <h1 class="text-center"> Product Description</h1>
+   <div class="w-full  bg-amber-100  px-4 py-4">
+     <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6"> Product Description</h1>
     <div>
         <div v-if="pending" > Loading ....</div>
         <div v-else-if="error"> Error : {{ error }}</div>
-        <div v-else>
-          <div class="flex justify-center">
+        <div v-else class="flex flex-col lg:flex-row justify-center items-center">
+          <div class="flex justify-center lg:w-1/3 mb-1 lg:mb-0">
               <img :src="product.thumbnail" :alt="product.title" class="h-80 w-80 ">
           </div>
-         <p>title : {{ product.title }}</p>   
-         <p> description : {{ product.description }}</p>
-         <p> category : {{ product.category }}</p>
-         <p> price : {{ product.price }}</p>
-         <p> Rating : {{ product.rating }}</p>
-         <p> Stock : {{ product.stock }}</p>
-         <p> Brand : {{ product.brand }}</p>
-         <p>warrantyInformation : {{ product.warrantyInformation }}</p>
-         <p> Shipping Information : {{ product.shippingInformation }}</p>
-         <p>AvailabilityStatus : {{ product.availabilityStatus }}</p>
+         <div class="lg:w-2/3 space-y-4 text-gray-700">
+          <p class="text-xl font-semibold"> {{ product.title }}</p>   
+         <p class="text-base"> {{ product.description }}</p>
+           <div class="space-y-2 ">
+          <p><strong>Category:</strong> {{ product.category }}</p>
+          <p><strong>Price:</strong> ${{ product.price }}</p>
+          <p><strong>Rating:</strong> {{ product.rating }}</p>
+          <p><strong>Stock:</strong> {{ product.stock }} available</p>
+          <p><strong>Brand:</strong> {{ product.brand }}</p>
+          <p><strong>Warranty Information:</strong> {{ product.warrantyInformation }}</p>
+          <p><strong>Shipping Information:</strong> {{ product.shippingInformation }}</p>
+          <p><strong>Availability Status:</strong> {{ product.availabilityStatus }}</p>
+        </div>
+       
+         </div>
         </div>
     </div>
    </div>
